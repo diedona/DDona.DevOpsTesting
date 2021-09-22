@@ -49,5 +49,5 @@ stages:
               azureSubscription: 'Pago pelo Uso (7846457b-4101-4623-8ce2-132a758e68e3)'
               appType: 'webAppLinux'
               WebAppName: 'ddona-debrops'
-              packageForLinux: '$(System.DefaultWorkingDirectory)/**/*.zip'
+              packageForLinux: '$(Build.DefaultWorkingDirectory)/**/*.zip'
               RuntimeStack: 'DOTNETCORE|5.0'
