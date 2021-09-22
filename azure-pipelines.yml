@@ -30,6 +30,12 @@ stages:
               command: 'build'
               arguments: '--configuration $(buildConfiguration)'
               projects: '**/*.csproj'
+
+          - task: DotNetCoreCLI@2
+            inputs:
+              command: 'publish'
+              publishWebProjects: true
+              arguments: '--configuration $(buildConfiguration) --output $(Build.DefaultWorkingDirectory)'
   
   - stage: Deploy_Dev
     displayName: 'Deploy Dev'
@@ -37,4 +43,11 @@ stages:
     jobs:
       - job: 'Deploy'
         steps:
-          - script: echo Hello World
+          - task: AzureRmWebAppDeployment@4
+            inputs:
+              ConnectionType: 'AzureRM'
+              azureSubscription: 'Pago pelo Uso (7846457b-4101-4623-8ce2-132a758e68e3)'
+              appType: 'webAppLinux'
+              WebAppName: 'ddona-debrops'
+              packageForLinux: '$(System.DefaultWorkingDirectory)/**/*.zip'
+              RuntimeStack: 'DOTNETCORE|5.0'
