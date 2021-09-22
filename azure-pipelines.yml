@@ -13,7 +13,7 @@ variables:
   buildConfiguration: 'Release'
 
 stages:
-  - stage: 'Build'
+  - stage: Build
     displayName: 'Build'
     jobs:
       - job: 'Build'
@@ -31,9 +31,9 @@ stages:
               arguments: '--configuration $(buildConfiguration)'
               projects: '**/*.csproj'
   
-  - stage: 'Deploy Dev'
+  - stage: Deploy_Dev
     displayName: 'Deploy Dev'
-    dependsOn: ['Build']
+    dependsOn: [Build]
     jobs:
       - job: 'Deploy'
         steps:
