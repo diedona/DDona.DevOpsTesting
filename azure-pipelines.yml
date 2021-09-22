@@ -25,3 +25,9 @@ steps:
       command: 'build'
       arguments: '--configuration $(buildConfiguration)'
       projects: '**/*.csproj'
+
+  - task: PublishBuildArtifacts@1
+    inputs:
+      PathtoPublish: '$(Build.ArtifactStagingDirectory)'
+      ArtifactName: 'drop'
+      publishLocation: 'Container'
