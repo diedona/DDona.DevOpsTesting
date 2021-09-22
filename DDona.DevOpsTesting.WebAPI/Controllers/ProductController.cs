@@ -14,7 +14,7 @@ namespace DDona.DevOpsTesting.WebAPI.Controllers
         [HttpGet]
         public ActionResult<string[]> Get()
         {
-            return Ok(new string[] { "Laptop", "Web Cam", "Head Set", "Curso da Debrão de Drops" });
+            return Ok(new string[] { "Laptop", "Web Cam", "Head Set", "Curso da Debrão de Drops", "Multi Stage YAML" });
         }
     }
 }
